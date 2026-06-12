@@ -1,0 +1,132 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   MiSto Gravering — Nordic Workshop Design System
+   Palette: deep fjord blue, warm oak, bone white
+   ============================================ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-wood: var(--wood);
+  --color-wood-deep: var(--wood-deep);
+  --color-bone: var(--bone);
+  --color-fjord: var(--fjord);
+  --color-fjord-deep: var(--fjord-deep);
+
+  --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Bone white background */
+  --background: oklch(0.975 0.008 80);
+  --foreground: oklch(0.22 0.04 250);
+
+  --card: oklch(0.985 0.005 80);
+  --card-foreground: oklch(0.22 0.04 250);
+
+  --popover: oklch(0.985 0.005 80);
+  --popover-foreground: oklch(0.22 0.04 250);
+
+  /* Deep fjord navy */
+  --primary: oklch(0.24 0.05 252);
+  --primary-foreground: oklch(0.975 0.008 80);
+
+  --secondary: oklch(0.93 0.012 80);
+  --secondary-foreground: oklch(0.22 0.04 250);
+
+  --muted: oklch(0.93 0.012 80);
+  --muted-foreground: oklch(0.45 0.025 250);
+
+  /* Warm wood accent */
+  --accent: oklch(0.62 0.12 55);
+  --accent-foreground: oklch(0.985 0.005 80);
+
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.985 0.005 80);
+
+  --border: oklch(0.88 0.015 80);
+  --input: oklch(0.88 0.015 80);
+  --ring: oklch(0.24 0.05 252);
+
+  /* Custom brand tokens */
+  --wood: oklch(0.72 0.095 60);
+  --wood-deep: oklch(0.52 0.1 50);
+  --bone: oklch(0.975 0.008 80);
+  --fjord: oklch(0.32 0.055 250);
+  --fjord-deep: oklch(0.18 0.045 252);
+
+  --shadow-elegant: 0 30px 60px -20px oklch(0.18 0.045 252 / 0.25);
+  --shadow-soft: 0 10px 30px -12px oklch(0.18 0.045 252 / 0.15);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+}
+
+@utility wood-grain {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      oklch(0.52 0.1 50 / 0.04) 1px,
+      transparent 2px,
+      transparent 6px
+    );
+}
